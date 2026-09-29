@@ -1,0 +1,70 @@
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.4rem 1rem;
+  background: rgba(13, 17, 23, 0.88);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+  backdrop-filter: blur(12px);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-secondary);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.item b {
+  color: var(--accent-primary);
+}
+
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+.on {
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-primary);
+  animation: pulse 2s infinite;
+}
+
+.off {
+  background: #ff4444;
+  box-shadow: 0 0 8px #ff4444;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.syncBar {
+  flex: 1;
+  min-width: 60px;
+  height: 3px;
+  background: rgba(0, 255, 65, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.syncFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ff41, #00ccff);
+  transition: width 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .hideMobile {
+    display: none;
+  }
+}

@@ -11,7 +11,7 @@ export const Hero = () => {
       <div className={styles.content}>
         <div className={styles.badge} data-aos="fade-up">
           <span className={styles.badgeDot} />
-          <span className="font-mono">root@neo-grid:~# ./boot_sequence.sh --year 2199</span>
+          <span className="font-mono">root@neo-grid:~# ./boot_sequence.sh --year 2799</span>
         </div>
 
         <h1 id="hero-title" className={styles.title} data-aos="fade-up" data-aos-delay="100">

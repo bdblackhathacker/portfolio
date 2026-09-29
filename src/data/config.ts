@@ -2,7 +2,7 @@ export const siteConfig = {
   developer: {
     name: 'bdblackhathacker',
     fullName: 'bdblackhathacker',
-    title: 'Gray-Hat Hacker // EST. 2199',
+    title: 'Gray-Hat Hacker // EST. 2799',
     tagline: 'I break systems so I can harden them. Real-time builder, CTF player, protector of the grid.',
     description: 'Gray-hat operator working at the intersection of offense and defense: penetration testing, real-time full-stack builds, OSINT and blue-team hardening. Every commit is a live payload — shipped, monitored, and secured.',
     avatar: '/favicon.svg',
@@ -12,7 +12,7 @@ export const siteConfig = {
     github: 'https://github.com/bdblackhathacker',
     linkedin: 'https://linkedin.com/in/bdblackhathacker',
     twitter: 'https://x.com/bdblackhathacker',
-    email: 'mailto:bdblackhathacker@gmail.com',
+    email: 'mailto:bd.blackhathacker35@gmail.com',
     discord: 'https://tryhackme.com/p/bdblackhathacker',
   },
   navigation: [
@@ -21,6 +21,7 @@ export const siteConfig = {
     { label: 'Ops Log', href: '#experience' },
     { label: 'Operations', href: '#projects' },
     { label: 'Arsenal', href: '#skills' },
+    { label: 'Terminal', href: '#terminal' },
     { label: 'Decrypt', href: '#contact' },
   ],
   about: {
@@ -42,7 +43,7 @@ export const siteConfig = {
       id: 1,
       position: 'Gray-Hat Operator — Offense & Defense',
       company: 'Independent // Neo-Grid',
-      period: '2199 - Present',
+      period: '2799 - Present',
       location: 'Remote // Tor-routed',
       type: 'full-time',
       description: 'Running end-to-end security operations: adversary simulation on my own labs, then hardening production systems with the findings.',
@@ -58,7 +59,7 @@ export const siteConfig = {
       id: 2,
       position: 'Real-Time Systems Builder',
       company: 'Blackhat Ops // Self-directed',
-      period: '2198 - 2199',
+      period: '2798 - 2799',
       location: 'Remote',
       type: 'contract',
       description: 'Designing and shipping low-latency, adversarially-tested applications — every release attacked before it is announced.',
@@ -74,7 +75,7 @@ export const siteConfig = {
       id: 3,
       position: 'Blue-Team Defender',
       company: 'Grid Protection Detail',
-      period: '2197 - 2198',
+      period: '2797 - 2798',
       location: 'Remote',
       type: 'freelance',
       description: 'Turned attacker knowledge into defensive automation: detection, deception, and rapid response.',
@@ -101,7 +102,7 @@ export const siteConfig = {
         github: 'https://github.com/bdblackhathacker/shadow-relay',
       },
       featured: true,
-      year: 2199,
+      year: 2799,
     },
     {
       id: 2,
@@ -115,7 +116,7 @@ export const siteConfig = {
         github: 'https://github.com/bdblackhathacker/ghost-scan',
       },
       featured: true,
-      year: 2199,
+      year: 2799,
     },
     {
       id: 3,
@@ -130,7 +131,7 @@ export const siteConfig = {
         github: 'https://github.com/bdblackhathacker/zero-trace',
       },
       featured: true,
-      year: 2198,
+      year: 2798,
     },
     {
       id: 4,
@@ -144,7 +145,7 @@ export const siteConfig = {
         live: 'https://github.com/bdblackhathacker',
       },
       featured: false,
-      year: 2198,
+      year: 2798,
     },
     {
       id: 5,
@@ -158,7 +159,7 @@ export const siteConfig = {
         github: 'https://github.com/bdblackhathacker/ai-redteam',
       },
       featured: false,
-      year: 2199,
+      year: 2799,
     },
     {
       id: 6,
@@ -172,7 +173,7 @@ export const siteConfig = {
         github: 'https://github.com/bdblackhathacker/kernel-ghost',
       },
       featured: false,
-      year: 2197,
+      year: 2797,
     },
   ],
   skills: {
@@ -221,11 +222,11 @@ export const siteConfig = {
   contact: {
     title: 'Decrypt Contact',
     description: 'Have a target to test, a system to harden, or a build to ship? Open a secure channel. Response time: under 24 hours.',
-    email: 'bdblackhathacker@gmail.com',
+    email: 'bd.blackhathacker35@gmail.com',
     formEndpoint: '/api/contact',
   },
   footer: {
-    copyright: '© 2199 bdblackhathacker. Leave no trace. Built with React, Three.js and 0x00FF41.',
+    copyright: '© 2799 bdblackhathacker. Leave no trace. Built with React, Three.js and 0x00FF41.',
     madeWith: 'GRAY HAT // BLACKHAT SKILLS + WHITEHAT ETHICS.',
   },
 };

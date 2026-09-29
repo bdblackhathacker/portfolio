@@ -21,7 +21,7 @@
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-/* 2199 protocol: forced dark. No light mode on the grid. */
+/* 2799 protocol: forced dark. No light mode on the grid. */
 @media (prefers-color-scheme: light) {
   :root {
     --bg-primary: #0d1117;
@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 
-/* ══════════ 2199 HUD LAYER ══════════ */
+/* ══════════ 2799 HUD LAYER ══════════ */
 
 body::before {
   content: '';

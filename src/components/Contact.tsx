@@ -50,8 +50,8 @@ export const Contact = () => {
             <div className={styles.infoItem}>
               <FiMail size={24} className={styles.infoIcon} />
               <h3>Email</h3>
-              <a href={siteConfig.contact.email} className={styles.infoLink}>
-                {siteConfig.contact.email.replace('mailto:', '')}
+              <a href={`mailto:${siteConfig.contact.email}`} className={styles.infoLink}>
+                {siteConfig.contact.email}
               </a>
             </div>
 
