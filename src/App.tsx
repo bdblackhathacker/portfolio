@@ -61,21 +61,32 @@ function App() {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add('reveal-visible');
+          if (e.isIntersecting) {
+            e.target.classList.add('reveal-visible');
+            io.unobserve(e.target);
+          }
         });
       },
       { threshold: 0.08 },
     );
     const observe = () => {
-      document.querySelectorAll('main section').forEach((s) => io.observe(s));
+      document.querySelectorAll('main section:not(.reveal-visible)').forEach((s) => io.observe(s));
     };
     observe();
-    const t = setTimeout(observe, 1500); // catch lazy sections
+    // lazy sections mount later — keep watching for them
+    const mo = new MutationObserver(observe);
+    const mainEl = document.querySelector('main');
+    if (mainEl) mo.observe(mainEl, { childList: true, subtree: true });
+    // safety: never leave a section invisible
+    const safety = setTimeout(() => {
+      document.querySelectorAll('main section').forEach((s) => s.classList.add('reveal-visible'));
+    }, 5000);
 
     return () => {
       lenis?.destroy();
       io.disconnect();
-      clearTimeout(t);
+      mo.disconnect();
+      clearTimeout(safety);
     };
   }, []);
 

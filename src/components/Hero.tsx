@@ -1,7 +1,7 @@
 import { HeroCanvas } from './Scene3D';
 import { Typewriter } from './Typewriter';
 import { siteConfig } from '@/data/config';
-import { FiArrowRight, FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiArrowRight, FiArrowDown, FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 import styles from './Hero.module.css';
 
 export const Hero = () => {
@@ -23,7 +23,7 @@ export const Hero = () => {
           {siteConfig.developer.title}
           <br />
           <span className={styles.typeLine}>
-            &gt; <Typewriter words={['penetration testing', 'quantum CTF ops', 'E2E real-time builds', 'eBPF rootkit hunting', 'AI red-teaming', 'blue-team hardening']} />
+            &gt; <Typewriter words={['penetration testing', 'quantum CTF ops', 'E2E real-time builds', 'eBPF rootkit hunting', 'AI red-teaming', 'blue-team hardening']} speed={55} pause={2200} />
           </span>
         </h2>
 
@@ -65,10 +65,10 @@ export const Hero = () => {
           </a>
         </div>
 
-        <div className={styles.scrollIndicator} data-aos="fade-up" data-aos-delay="800">
+        <div className={styles.scrollIndicator} data-aos="fade-up" data-aos-delay="800" aria-hidden="true">
           <span className={styles.scrollText}>scroll to decrypt</span>
           <div className={styles.scrollArrow}>
-            <FiArrowRight size={20} />
+            <FiArrowDown size={20} />
           </div>
         </div>
       </div>
