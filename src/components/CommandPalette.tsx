@@ -26,8 +26,16 @@ export const CommandPalette = ({ onHack }: { onHack?: () => void }) => {
       }
       if (e.key === 'Escape') setOpen(false);
     };
+    const onExternal = () => {
+      setOpen(true);
+      sfx.click();
+    };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener('neo:open-palette', onExternal);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('neo:open-palette', onExternal);
+    };
   }, []);
 
   useEffect(() => {
