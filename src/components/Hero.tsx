@@ -1,4 +1,5 @@
 import { HeroCanvas } from './Scene3D';
+import { Typewriter } from './Typewriter';
 import { siteConfig } from '@/data/config';
 import { FiArrowRight, FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 import styles from './Hero.module.css';
@@ -20,6 +21,10 @@ export const Hero = () => {
 
         <h2 className={styles.subtitle} data-aos="fade-up" data-aos-delay="200">
           {siteConfig.developer.title}
+          <br />
+          <span className={styles.typeLine}>
+            &gt; <Typewriter words={['penetration testing', 'quantum CTF ops', 'E2E real-time builds', 'eBPF rootkit hunting', 'AI red-teaming', 'blue-team hardening']} />
+          </span>
         </h2>
 
         <p className={styles.description} data-aos="fade-up" data-aos-delay="300">

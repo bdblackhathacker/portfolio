@@ -75,6 +75,16 @@
   margin-right: auto;
 }
 
+.typeLine {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--accent-primary);
+  text-shadow: 0 0 18px var(--accent-glow);
+  min-height: 1.6em;
+}
+
 .description {
   font-size: 1.125rem;
   color: var(--fg-muted);

@@ -21,6 +21,39 @@
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
+/* ══ 2799 MATRIX THEMES — no one else has this ══ */
+[data-theme='cyan'] {
+  --accent-primary: #00e5ff;
+  --accent-glow: rgba(0, 229, 255, 0.35);
+  --card-border: rgba(0, 229, 255, 0.2);
+}
+[data-theme='amber'] {
+  --accent-primary: #ffb000;
+  --accent-glow: rgba(255, 176, 0, 0.35);
+  --card-border: rgba(255, 176, 0, 0.22);
+}
+[data-theme='blood'] {
+  --accent-primary: #ff3355;
+  --accent-glow: rgba(255, 51, 85, 0.35);
+  --card-border: rgba(255, 51, 85, 0.22);
+  --danger: #ff3355;
+}
+
+/* ══ scroll reveal — award-level motion ══ */
+main section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+main section.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+main section:first-child {
+  opacity: 1;
+  transform: none;
+}
+
 /* 2799 protocol: forced dark. No light mode on the grid. */
 @media (prefers-color-scheme: light) {
   :root {

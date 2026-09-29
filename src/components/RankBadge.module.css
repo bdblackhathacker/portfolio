@@ -1,0 +1,101 @@
+.badge {
+  position: fixed;
+  left: 1rem;
+  bottom: 1.2rem;
+  z-index: 9991;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--fg-secondary);
+  background: rgba(13, 17, 23, 0.9);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  backdrop-filter: blur(10px);
+  max-width: 46vw;
+}
+
+.rank {
+  color: var(--accent-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bar {
+  width: 70px;
+  height: 4px;
+  background: rgba(0, 255, 65, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), #00ccff);
+  transition: width 0.4s ease;
+}
+
+.xp {
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.levelup {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: fadeOut 2.6s ease forwards;
+}
+
+.lvBox {
+  background: rgba(13, 17, 23, 0.96);
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 60px var(--accent-glow);
+  border-radius: 14px;
+  padding: 2rem 3rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  animation: pop 0.3s ease-out;
+}
+
+.lvBox h3 {
+  font-size: 2.2rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.15em;
+  margin: 0.4rem 0;
+}
+
+.lvBox b {
+  color: var(--accent-primary);
+}
+
+.lvSub {
+  color: var(--fg-muted);
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+@keyframes pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .badge {
+    bottom: 4rem;
+    font-size: 0.6rem;
+  }
+}

@@ -1,14 +1,20 @@
-import { Suspense, lazy, useCallback, useState } from 'react';
+import { Suspense, lazy, useCallback, useEffect, useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SystemHUD } from './components/SystemHUD';
 import { BootSequence } from './components/BootSequence';
+import { CommandPalette } from './components/CommandPalette';
+import { RankBadge } from './components/RankBadge';
+import { ThemeOrb } from './components/ThemeOrb';
+import { initTheme } from './utils/theme';
+import { sfx } from './utils/sound';
 import './styles/globals.css';
 
 const Hero = lazy(() => import('./components/Hero'));
 const About = lazy(() => import('./components/About'));
 const Experience = lazy(() => import('./components/Experience'));
 const Projects = lazy(() => import('./components/Projects'));
+const ThreatMap = lazy(() => import('./components/ThreatMap'));
 const Skills = lazy(() => import('./components/Skills'));
 const AITerminal = lazy(() => import('./components/AITerminal'));
 const Contact = lazy(() => import('./components/Contact'));
@@ -29,7 +35,48 @@ function App() {
     } catch {
       /* ignore */
     }
+    sfx.boot();
     setBooted(true);
+  }, []);
+
+  // theme + smooth scroll + reveal — the world-best motion layer
+  useEffect(() => {
+    initTheme();
+
+    let lenis: { destroy: () => void } | null = null;
+    (async () => {
+      try {
+        const mod = await import('lenis');
+        const Lenis = mod.default;
+        const instance = new Lenis({ lerp: 0.1, smoothWheel: true });
+        lenis = instance as unknown as { destroy: () => void };
+        const raf = (t: number) => {
+          (instance as unknown as { raf: (t: number) => void }).raf(t);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      } catch { /* fallback to native scroll */ }
+    })();
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add('reveal-visible');
+        });
+      },
+      { threshold: 0.08 },
+    );
+    const observe = () => {
+      document.querySelectorAll('main section').forEach((s) => io.observe(s));
+    };
+    observe();
+    const t = setTimeout(observe, 1500); // catch lazy sections
+
+    return () => {
+      lenis?.destroy();
+      io.disconnect();
+      clearTimeout(t);
+    };
   }, []);
 
   return (
@@ -49,6 +96,9 @@ function App() {
           <Projects />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
+          <ThreatMap />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
           <Skills />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
@@ -59,6 +109,9 @@ function App() {
         </Suspense>
       </main>
       <Footer />
+      <CommandPalette />
+      <RankBadge />
+      <ThemeOrb />
     </>
   );
 }
