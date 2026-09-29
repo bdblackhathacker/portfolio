@@ -1,0 +1,25 @@
+# deps
+node_modules/
+
+# build
+dist/
+dist-ssr/
+*.local
+
+# logs / editor
+logs/
+*.log
+npm-debug.log*
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# vite / tsc
+*.tsbuildinfo
+.eslintcache
