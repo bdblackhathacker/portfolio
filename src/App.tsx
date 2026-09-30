@@ -16,7 +16,10 @@ const Experience = lazy(() => import('./components/Experience'));
 const Projects = lazy(() => import('./components/Projects'));
 const ThreatMap = lazy(() => import('./components/ThreatMap'));
 const Skills = lazy(() => import('./components/Skills'));
+const Services = lazy(() => import('./components/Services'));
+const Resume = lazy(() => import('./components/Resume'));
 const AITerminal = lazy(() => import('./components/AITerminal'));
+const FAQ = lazy(() => import('./components/FAQ'));
 const Contact = lazy(() => import('./components/Contact'));
 
 function App() {
@@ -113,7 +116,16 @@ function App() {
           <Skills />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
+          <Services />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Resume />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
           <AITerminal />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <FAQ />
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           <Contact />

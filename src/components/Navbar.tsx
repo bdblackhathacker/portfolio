@@ -146,12 +146,6 @@ export const Navbar = () => {
             <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn" onMouseEnter={() => sfx.hover()}>
               <FiLinkedin size={17} />
             </a>
-            <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Twitter" onMouseEnter={() => sfx.hover()}>
-              <FiTwitter size={17} />
-            </a>
-            <a href={siteConfig.social.email} className={styles.socialLink} aria-label="Email" onMouseEnter={() => sfx.hover()}>
-              <FiMail size={17} />
-            </a>
           </div>
 
           <a

@@ -20,9 +20,84 @@ export const siteConfig = {
     { label: 'whoami', href: '#about' },
     { label: 'Ops Log', href: '#experience' },
     { label: 'Operations', href: '#projects' },
+    { label: 'Services', href: '#services' },
     { label: 'Arsenal', href: '#skills' },
     { label: 'Terminal', href: '#terminal' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Decrypt', href: '#contact' },
+  ],
+  availability: {
+    status: 'available',
+    label: 'Available for new operations',
+    detail: 'Booking pentests & secure builds — response < 24h',
+  },
+  services: [
+    {
+      icon: 'shield',
+      title: 'Penetration Testing',
+      description: 'Adversary simulation on your web apps, APIs and infra — then a report your devs can actually action.',
+      points: ['OWASP Top 10 + business-logic abuse', 'Proof-of-concept for every finding', 'Severity-ranked report + fix call'],
+      timeline: '1–2 weeks',
+    },
+    {
+      icon: 'code',
+      title: 'Secure Full-Stack Builds',
+      description: 'Real-time apps shipped hardened: encrypted transport, hardened headers, zero leaked secrets.',
+      points: ['Next.js / Go / Rust / FastAPI', 'Auth, payments & WebSocket hardening', 'Deploy + monitoring included'],
+      timeline: '2–6 weeks',
+    },
+    {
+      icon: 'search',
+      title: 'Code & Cloud Audit',
+      description: 'Line-by-line review and misconfiguration hunt across repos, AWS/GCP, Docker and CI pipelines.',
+      points: ['Secret-leak & dependency sweep', 'IAM, bucket & nginx hardening', 'Checklist your team keeps'],
+      timeline: '3–7 days',
+    },
+    {
+      icon: 'zap',
+      title: 'Incident Response',
+      description: 'Something breached? Triage, containment, root-cause and hardening so it never repeats.',
+      points: ['Log forensics + IOC sweep', 'Containment within hours', 'Post-mortem + runbooks'],
+      timeline: '24–72 hours',
+    },
+  ],
+  process: [
+    { step: '01', title: 'Discover', text: 'Free 20-min call. Scope, targets, rules of engagement — fixed quote, no surprises.' },
+    { step: '02', title: 'Attack', text: 'I break it like an adversary would. You get live updates, never silence.' },
+    { step: '03', title: 'Harden', text: 'Findings patched or fixes specified. Retest included to prove it held.' },
+    { step: '04', title: 'Handoff', text: 'Report, PoCs, runbooks and a walkthrough call. Your team keeps everything.' },
+  ],
+  trust: [
+    { title: 'NDA-first', text: 'Signed before I touch anything. Your systems stay yours.' },
+    { title: 'Proof, not FUD', text: 'Every finding ships with a reproducible PoC — no scanner spam.' },
+    { title: 'Free retest', text: 'One remediation retest included on every engagement.' },
+    { title: 'Fixed quotes', text: 'Scoped in writing. No hourly bleed, no surprise invoices.' },
+  ],
+  faqs: [
+    {
+      q: 'How much does an engagement cost?',
+      a: 'Audits start small (days, not months), pentests are scoped per target, builds per milestone. Every quote is fixed in writing before work starts — tell me the target on a free 20-min call and you will have a number within 24 hours.',
+    },
+    {
+      q: 'How fast can we start?',
+      a: 'Audits and incident response: days. Pentests: usually within 1–2 weeks. Builds: queued by milestone. I take on a limited number of operations at once so yours gets full attention.',
+    },
+    {
+      q: 'Will you sign an NDA?',
+      a: 'Yes — always, before anything else. All findings, code and infra details stay confidential, and reports are yours exclusively.',
+    },
+    {
+      q: 'What do I actually receive?',
+      a: 'A severity-ranked report with proof-of-concept for every finding, exact remediation steps, one free retest, plus a walkthrough call. For builds: repo, deployment, docs and monitoring.',
+    },
+    {
+      q: 'Do you work with non-technical founders?',
+      a: 'Constantly. You get plain-language summaries, risk in business terms, and a fixed price — no jargon walls, no hourly meter running while you learn.',
+    },
+    {
+      q: 'What if something breaks after handoff?',
+      a: 'Every engagement includes a support window and one free retest of remediated findings. If I shipped it, I stand behind it.',
+    },
   ],
   about: {
     title: 'whoami --decrypt',

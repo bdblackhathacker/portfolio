@@ -85,6 +85,34 @@
   min-height: 1.6em;
 }
 
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--fg-secondary);
+  background: rgba(0, 255, 65, 0.07);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+}
+
+.availDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 .description {
   font-size: 1.125rem;
   color: var(--fg-muted);

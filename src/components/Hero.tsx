@@ -31,6 +31,11 @@ export const Hero = () => {
           {siteConfig.developer.description}
         </p>
 
+        <div className={styles.avail} data-aos="fade-up" data-aos-delay="350">
+          <span className={styles.availDot} />
+          <span>{siteConfig.availability.label} — {siteConfig.availability.detail}</span>
+        </div>
+
         <div className={styles.ctaGroup} data-aos="fade-up" data-aos-delay="400">
           <a href="#projects" className={styles.ctaPrimary}>
             View Operations

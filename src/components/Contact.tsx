@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { siteConfig } from '@/data/config';
-import { FiSend, FiUser, FiMail, FiMessageSquare, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiSend, FiUser, FiMail, FiMessageSquare, FiGithub, FiLinkedin, FiCopy, FiCheck } from 'react-icons/fi';
+import { sfx } from '@/utils/sound';
 import styles from './Contact.module.css';
 
 export const Contact = () => {
@@ -13,6 +14,7 @@ export const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [copied, setCopied] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -21,15 +23,37 @@ export const Contact = () => {
     });
   };
 
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(siteConfig.contact.email);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = siteConfig.contact.email;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    setCopied(true);
+    sfx.success();
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+    // No backend on a static portfolio — compose a real email instead of faking it.
+    const subject = encodeURIComponent(`[Portfolio Op] ${formData.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
+    );
     setTimeout(() => {
+      window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
       setIsSubmitting(false);
       setSubmitStatus('success');
+      sfx.success();
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+    }, 600);
   };
 
   return (
@@ -53,6 +77,16 @@ export const Contact = () => {
               <a href={`mailto:${siteConfig.contact.email}`} className={styles.infoLink}>
                 {siteConfig.contact.email}
               </a>
+              <button
+                type="button"
+                onClick={copyEmail}
+                className={styles.infoLink}
+                aria-label="Copy email address"
+                style={{ marginTop: '0.4rem', fontSize: '0.8rem', opacity: 0.85 }}
+              >
+                {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                <span style={{ marginLeft: '0.35rem' }}>{copied ? 'Copied!' : 'Copy email'}</span>
+              </button>
             </div>
 
             <div className={styles.infoItem}>
@@ -73,7 +107,7 @@ export const Contact = () => {
 
             <div className={styles.location}>
               <span className={styles.locationDot} />
-              <span className={styles.locationText}>Signal online — remote ops worldwide, response &lt; 24h</span>
+              <span className={styles.locationText}>{siteConfig.availability.label} — {siteConfig.availability.detail}</span>
             </div>
           </div>
 
@@ -177,7 +211,7 @@ export const Contact = () => {
 
             {submitStatus === 'success' && (
               <div className={styles.successMessage} role="alert">
-                Message encrypted! Channel opens within 24 hours.
+                Opening your mail client with the payload addressed — or email me directly above.
               </div>
             )}
           </form>
